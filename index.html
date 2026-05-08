@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Drapps</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- Navbar simulando el diseño de la diapositiva -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">👥 Bienvenidos Plataforma Empleados | Drapps.co</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h3>Sistema para administrar empleados en la empresa Drapps</h3>
+
+        <!-- Botones de Acción -->
+        <div class="mb-4">
+            <button class="btn btn-primary" onclick="crearEmpleado()">Agregar Empleado (Con div oculto)</button>
+            <button class="btn btn-success">Buscar Empleado (Con modal)</button>
+        </div>
+
+        <!-- Formulario Oculto (ID exacto que pide el código JS de las diapositivas) -->
+        <div id="agregarEmpleadoH" class="card p-4 mb-4 shadow-sm">
+            <h5>Formulario de Registro</h5>
+            <div class="row g-2">
+                <div class="col-md-6"><input type="text" id="ccH" class="form-control" placeholder="Cédula (CC)"></div>
+                <div class="col-md-6"><input type="text" id="nombresyApellidosH" class="form-control"
+                        placeholder="Nombres y Apellidos"></div>
+                <div class="col-md-6"><input type="text" id="direccionH" class="form-control" placeholder="Dirección">
+                </div>
+                <div class="col-md-6"><input type="email" id="emailH" class="form-control" placeholder="Email"></div>
+                <div class="col-md-6"><input type="text" id="telefonoH" class="form-control" placeholder="Teléfono">
+                </div>
+                <div class="col-md-6"><input type="number" id="sueldoBaseH" class="form-control"
+                        placeholder="Sueldo Base"></div>
+                <div class="col-md-6"><input type="text" id="tipoEmpleadoH" class="form-control"
+                        placeholder="Tipo Empleado (Fijo/Contrato)"></div>
+                <div class="col-md-6"><input type="text" id="tipoBonificacionH" class="form-control"
+                        placeholder="Tipo Bonificación (C/B)"></div>
+            </div>
+            <button class="btn btn-primary mt-3 w-100" onclick="agregarEmpleado()">Guardar Empleado</button>
+        </div>
+
+        <h5>Lista de Empleados (Table Hover Rows)</h5>
+
+        <!-- Div con Scroll según diapositiva -->
+        <div class="container mt-3" style="overflow: auto;">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>CC</th>
+                        <th>Nombres y Apellidos</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Sueldo Base</th>
+                        <th>Tipo Empleado</th>
+                        <th>Tipo Bonificación</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla">
+                    <!-- Los datos se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="Empleado.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
