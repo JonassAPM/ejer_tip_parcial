@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Drapps</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS Propio -->
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="views/estilos.css">
 </head>
 
 <body>
 
-    <!-- Navbar simulando el diseño de la diapositiva -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">👥 Bienvenidos Plataforma Empleados | Drapps.co</a>
@@ -23,13 +20,11 @@
     <div class="container mt-4">
         <h3>Sistema para administrar empleados en la empresa Drapps</h3>
 
-        <!-- Botones de Acción -->
         <div class="mb-4">
             <button class="btn btn-primary" onclick="crearEmpleado()">Agregar Empleado (Con div oculto)</button>
             <button class="btn btn-success">Buscar Empleado (Con modal)</button>
         </div>
 
-        <!-- Formulario Oculto (ID exacto que pide el código JS de las diapositivas) -->
         <div id="agregarEmpleadoH" class="card p-4 mb-4 shadow-sm">
             <h5>Formulario de Registro</h5>
             <div class="row g-2">
@@ -53,7 +48,6 @@
 
         <h5>Lista de Empleados (Table Hover Rows)</h5>
 
-        <!-- Div con Scroll según diapositiva -->
         <div class="container mt-3" style="overflow: auto;">
             <table class="table table-hover">
                 <thead>
@@ -72,15 +66,13 @@
                     </tr>
                 </thead>
                 <tbody id="cuerpoTabla">
-                    <!-- Los datos se insertarán aquí dinámicamente -->
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="Empleado.js"></script>
-    <script src="main.js"></script>
+    <script src="models/Empleado.js"></script>
+    <script src="controllers/main.js"></script>
 </body>
 
 </html>

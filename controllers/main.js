@@ -1,14 +1,9 @@
-// Controlador Principal
-// Limpiar el Api localStorage
 window.onload = function () {
     localStorage.clear();
-    // Inicia la tabla vacía
     renderizarTabla();
 }
 
 var contador = 0;
-// Se instancia un objeto vacío para usar su método según la diapositiva
-const empleadoObj = new Empleado();
 
 function crearEmpleado() {
     document.getElementById('agregarEmpleadoH').style.display = 'block';
@@ -20,10 +15,8 @@ function agregarEmpleado() {
     if (contador > 0) {
         for (var i = 1; i <= contador; i++) {
             const empleadoX = "empleado" + i;
-            // console.log(empleadoX);
             const empleadoB = JSON.parse(localStorage.getItem(empleadoX));
 
-            // Verificamos que el registro exista antes de validar la CC
             if (empleadoB && empleadoB.cc == document.getElementById('ccH').value) {
                 encontro = true;
                 alert("Este empleado ya se encuentra registrado, por favor agregar nueva CC");
@@ -33,14 +26,30 @@ function agregarEmpleado() {
 
     if (encontro == false) {
         contador += 1;
-        empleadoObj.agregarEmpleadoC(contador);
+        
+        alert("Entró a empleado");
+        var ccH = document.getElementById('ccH').value;
+        var nombresyApellidosH = document.getElementById('nombresyApellidosH').value;
+        var direccionH = document.getElementById('direccionH').value;
+        var emailH = document.getElementById('emailH').value;
+        var telefonoH = document.getElementById('telefonoH').value;
+        var sueldoBaseH = document.getElementById('sueldoBaseH').value;
+        var tipoEmpleadoH = document.getElementById('tipoEmpleadoH').value;
+        var tipoBonificacionH = document.getElementById('tipoBonificacionH').value;
+
+        const empleado = new Empleado(ccH, nombresyApellidosH, direccionH, emailH, telefonoH, sueldoBaseH, tipoEmpleadoH, tipoBonificacionH);
+
+        const empleadoJSON = JSON.stringify(empleado);
+        localStorage.setItem('empleado' + contador, empleadoJSON);
+
+        document.getElementById('agregarEmpleadoH').style.display = 'none';
+        renderizarTabla();
     }
 }
 
-// --- CÓDIGO EXTRA NECESARIO PARA QUE SE VEA EN LA PANTALLA ---
 function renderizarTabla() {
     let cuerpoTabla = document.getElementById("cuerpoTabla");
-    cuerpoTabla.innerHTML = ""; // Limpia la tabla
+    cuerpoTabla.innerHTML = "";
 
     for (let i = 1; i <= contador; i++) {
         let emp = JSON.parse(localStorage.getItem("empleado" + i));
